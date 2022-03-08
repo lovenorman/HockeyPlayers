@@ -44,6 +44,22 @@ search.addEventListener("keyup", ()=>{
     });
 })
 
+//SORT
+const sortByName = document.getElementById('sortByName')
+sortByName.addEventListener("click", ()=>{
+    //alert('hej');
+    
+    const sortedList = items.sort((a, b) =>{
+        return a.age - b.age;
+    });//Hämta listan, sortera...
+   
+    productTableBody.innerHTML = ''; //och skriva om sidan.
+    sortedList.forEach((item) =>{
+        renderTr(item);
+    });
+    
+})
+
 class HockeyPlayer{
     constructor(id,namn,jersey,age,born){
         this.id = id;
@@ -81,8 +97,6 @@ listLink.addEventListener("click",()=>{
     refreshItems(); 
     showSection('sectionList');    
 });
-
-//När vi klickar på
 
 //När vi klickar på "submit"
 submitNewButton.addEventListener("click",()=>{ 
