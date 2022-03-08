@@ -30,6 +30,7 @@ const baseApi = 'https://hockeyplayers.systementor.se/Love/player'
 // HTTP PUT Uppdatera befintlig https://fakestoreapi.com/products 
 //                          - skicka in nya properties som JSON
 
+//SEARCH
 const search = document.getElementById('search')
 search.addEventListener("keyup", ()=>{
     const lowercase = search.value.toLowerCase() //Värdet som skrivs in görs till lowercase och sparas i variabel
@@ -80,6 +81,8 @@ listLink.addEventListener("click",()=>{
     refreshItems(); 
     showSection('sectionList');    
 });
+
+//När vi klickar på
 
 //När vi klickar på "submit"
 submitNewButton.addEventListener("click",()=>{ 
