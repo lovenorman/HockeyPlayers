@@ -44,21 +44,79 @@ search.addEventListener("keyup", ()=>{
     });
 })
 
-//SORT
+//SORT BY NAME
 const sortByName = document.getElementById('sortByName')
 sortByName.addEventListener("click", ()=>{
-    //alert('hej');
     
-    const sortedList = items.sort((a, b) =>{
-        return a.age - b.age;
-    });//Hämta listan, sortera...
+    const sortedList = items.sort((a, b)=>{ //First, convert the names to lowercase.
+        let fa = a.namn.toLowerCase(), //Compare names 
+            fb = b.namn.toLowerCase();
+
+        if(fa < fb) {   //return -1, 1 and 0, depending on the string comparison.
+            return -1;
+        }
+        if(fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
+    productTableBody.innerHTML = ''; //och skriva om sidan.
+    sortedList.forEach((item) =>{
+        renderTr(item);
+    });
+});
+
+// SORT BY JERSEY
+const sortByJersey = document.getElementById('sortByJersey')
+sortByJersey.addEventListener("click", ()=>{
+    
+    const sortedList = items.sort((a, b) =>{  //Hämta listan, sortera...
+        return a.jersey - b.jersey;
+    });
    
     productTableBody.innerHTML = ''; //och skriva om sidan.
     sortedList.forEach((item) =>{
         renderTr(item);
     });
     
-})
+});
+
+//SORT BY AGE
+const sortByAge = document.getElementById('sortByAge')
+sortByAge.addEventListener("click", ()=>{
+    
+    const sortedList = items.sort((a, b) =>{  //Hämta listan, sortera...
+        return a.age - b.age;
+    });
+   
+    productTableBody.innerHTML = ''; //och skriva om sidan.
+    sortedList.forEach((item) =>{
+        renderTr(item);
+    });
+    
+});
+
+//SORT BY BORN
+const sortByBorn = document.getElementById('sortByBorn')
+sortByBorn.addEventListener("click", ()=>{
+    
+    const sortedList = items.sort((a, b)=>{ //First, convert the names to lowercase.
+        let fa = a.born.toLowerCase(), //Compare names 
+            fb = b.born.toLowerCase();
+
+        if(fa < fb) {   //return -1, 1 and 0, depending on the string comparison.
+            return -1;
+        }
+        if(fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
+    productTableBody.innerHTML = ''; //och skriva om sidan.
+    sortedList.forEach((item) =>{
+        renderTr(item);
+    });
+});
 
 class HockeyPlayer{
     constructor(id,namn,jersey,age,born){
