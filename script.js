@@ -30,6 +30,7 @@ const baseApi = 'https://hockeyplayers.systementor.se/Love/player'
 // HTTP PUT Uppdatera befintlig https://fakestoreapi.com/products 
 //                          - skicka in nya properties som JSON
 
+//SEARCH
 const search = document.getElementById('search')
 search.addEventListener("keyup", ()=>{
     const lowercase = search.value.toLowerCase() //Värdet som skrivs in görs till lowercase och sparas i variabel
@@ -42,6 +43,80 @@ search.addEventListener("keyup", ()=>{
         renderTr(item);
     });
 })
+
+//SORT BY NAME
+const sortByName = document.getElementById('sortByName')
+sortByName.addEventListener("click", ()=>{
+    
+    const sortedList = items.sort((a, b)=>{ //First, convert the names to lowercase.
+        let fa = a.namn.toLowerCase(), //Compare names 
+            fb = b.namn.toLowerCase();
+
+        if(fa < fb) {   //return -1, 1 and 0, depending on the string comparison.
+            return -1;
+        }
+        if(fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
+    productTableBody.innerHTML = ''; //och skriva om sidan.
+    sortedList.forEach((item) =>{
+        renderTr(item);
+    });
+});
+
+// SORT BY JERSEY
+const sortByJersey = document.getElementById('sortByJersey')
+sortByJersey.addEventListener("click", ()=>{
+    
+    const sortedList = items.sort((a, b) =>{  //Hämta listan, sortera...
+        return a.jersey - b.jersey;
+    });
+   
+    productTableBody.innerHTML = ''; //och skriva om sidan.
+    sortedList.forEach((item) =>{
+        renderTr(item);
+    });
+    
+});
+
+//SORT BY AGE
+const sortByAge = document.getElementById('sortByAge')
+sortByAge.addEventListener("click", ()=>{
+    
+    const sortedList = items.sort((a, b) =>{  //Hämta listan, sortera...
+        return a.age - b.age;
+    });
+   
+    productTableBody.innerHTML = ''; //och skriva om sidan.
+    sortedList.forEach((item) =>{
+        renderTr(item);
+    });
+    
+});
+
+//SORT BY BORN
+const sortByBorn = document.getElementById('sortByBorn')
+sortByBorn.addEventListener("click", ()=>{
+    
+    const sortedList = items.sort((a, b)=>{ //First, convert the names to lowercase.
+        let fa = a.born.toLowerCase(), //Compare names 
+            fb = b.born.toLowerCase();
+
+        if(fa < fb) {   //return -1, 1 and 0, depending on the string comparison.
+            return -1;
+        }
+        if(fa > fb) {
+            return 1;
+        }
+        return 0;
+    });
+    productTableBody.innerHTML = ''; //och skriva om sidan.
+    sortedList.forEach((item) =>{
+        renderTr(item);
+    });
+});
 
 class HockeyPlayer{
     constructor(id,namn,jersey,age,born){
