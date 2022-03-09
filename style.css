@@ -1,0 +1,4 @@
+table th:hover{
+    color: rgb(184, 184, 184);
+    cursor: pointer;
+}
