@@ -1,0 +1,1 @@
+export const baseApi = 'https://hockeyplayers.systementor.se/Love/player'
