@@ -1,12 +1,12 @@
+import { refreshItems } from "./RefreshItems.js"
+import { baseApi } from "../API/baseAPI.js"
+
 export const editName = document.getElementById('editName')
 export const editJersey = document.getElementById('editJersey')
 export const editAge = document.getElementById('editAge')
 export const editBorn = document.getElementById('editBorn')
 
 export const submitEditButton = document.getElementById('submitEditButton')
-
-export const baseApi = 'https://hockeyplayers.systementor.se/Love/player'
-
 
 
 submitEditButton.addEventListener("click",()=>{
