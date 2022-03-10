@@ -3,15 +3,11 @@ import {editProduct} from './Data/EditProduct.js'
 import { baseApi } from './API/baseAPI.js'
 import { refreshItems } from './Data/RefreshItems.js'
 import { showSection } from './Data/Showsection.js'
+import {  } from './Data/Sort.js'
 
 //Skapar kopplingar mellan html-id och JS-variabler som vi kan använda i JS-koden för att komma åt HTML.
 
-const productTableBody = document.getElementById('productTableBody')
-
-
-
-
-
+export const productTableBody = document.getElementById('productTableBody')
 
 //const baseAPI = 'https://fakestoreapi.com/products'
 // HTTP GET Vi vill kunna lista alla https://fakestoreapi.com/products
@@ -69,7 +65,7 @@ submitNewButton.addEventListener("click",()=>{
 });
 
 
-let items = [];
+export let items = [];
 refreshItems();
   
 
