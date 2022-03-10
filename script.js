@@ -1,4 +1,6 @@
-// 1. DOM - komma åt element ?
+import {HockeyPlayer} from './Data/Product.js'
+import {baseApi, editProduct} from './Data/EditProduct.js'
+
 //Skapar kopplingar mellan html-id och JS-variabler som vi kan använda i JS-koden för att komma åt HTML.
 const sectionList = document.getElementById('sectionList')
 const sectionNew = document.getElementById('sectionNew')
@@ -13,15 +15,7 @@ const newJersey = document.getElementById('newJersey')
 const newAge = document.getElementById('newAge')
 const newBorn = document.getElementById('newBorn')
 
-const editName = document.getElementById('editName')
-const editJersey = document.getElementById('editJersey')
-const editAge = document.getElementById('editAge')
-const editBorn = document.getElementById('editBorn')
 
-const submitEditButton = document.getElementById('submitEditButton')
-
-//Ändra till love när en ny spelare skapats
-const baseApi = 'https://hockeyplayers.systementor.se/Love/player'
 //const baseAPI = 'https://fakestoreapi.com/products'
 // HTTP GET Vi vill kunna lista alla https://fakestoreapi.com/products
 // HTTP GET Lista en https://fakestoreapi.com/products/4
@@ -118,16 +112,6 @@ sortByBorn.addEventListener("click", ()=>{
     });
 });
 
-class HockeyPlayer{
-    constructor(id,namn,jersey,age,born){
-        this.id = id;
-        this.namn = namn;
-        this.jersey = jersey;
-        this.age = age;
-        this.born = born;
-    }
-}
-
 //Metod för att visa olika sektioner av html via variablerna ovan.
 function showSection(sectionsId){
     if(sectionsId == 'sectionList'){
@@ -189,41 +173,10 @@ submitNewButton.addEventListener("click",()=>{
         })
 });
 
-submitEditButton.addEventListener("click",()=>{
-    
-    const changedProductValues = {
-        namn: editName.value,
-        jersey: editJersey.value,
-        age: editAge.value,
-        born: editBorn.value
-    };
-    const reqParams = {
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        method:"PUT",
-        body:JSON.stringify(changedProductValues)
-    };
 
-    //https://hockeyplayers.systementor.se/stefan/player/4
-    fetch(baseApi + '/' + editingProduct.id ,reqParams)
-        .then(res=>{
-            refreshItems();
-            showSection('sectionList');
-        });
-});
 
-let editingProduct = null;
 
-function editProduct(id){
-    editingProduct = items.find((item)=>item.id == id)//Visar item som stämmer överens med det id vi får från "jsCall"
-    editName.value = editingProduct.namn; //Nuvarande värde visas.
-    editJersey.value = editingProduct.jersey;
-    editAge.value = editingProduct.age;
-    editBorn.value = editingProduct.born;
-    showSection('sectionEdit');
-}
-
+window.editProduct = editProduct
 
 //Metod för att lägga till nytt item till den befintliga listan
 function renderTr(product){
@@ -259,7 +212,7 @@ function refreshItems(){
             //json -> items
             console.log(array)
             array.forEach(prod=>{
-                p = new HockeyPlayer(prod.id,
+                let p = new HockeyPlayer(prod.id,
                     prod.namn,
                     prod.jersey,
                     prod.age,
@@ -270,18 +223,10 @@ function refreshItems(){
                 renderTr(item);
             });
         });
-
 }
 
 let items = [];
 refreshItems();
-
-
-
-//Loopa den
-// för varje skapa tr, för varje skapa td:s 
-//lägga in den nya tr:n som ett barn till  productTableBody
-
   
 
 showSection('sectionList');
