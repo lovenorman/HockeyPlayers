@@ -8,6 +8,7 @@ export const editBorn = document.getElementById('editBorn')
 
 export const submitEditButton = document.getElementById('submitEditButton')
 
+window.editProduct = editProduct
 
 submitEditButton.addEventListener("click",()=>{
     

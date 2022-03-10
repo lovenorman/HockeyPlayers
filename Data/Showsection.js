@@ -1,6 +1,13 @@
 //Metod för att visa olika sektioner av html via variablerna ovan.
 window.showSection = showSection
 
+const sectionList = document.getElementById('sectionList')
+const sectionNew = document.getElementById('sectionNew')
+const sectionEdit = document.getElementById('sectionEdit')
+
+const listLink = document.getElementById('listLink')
+const newLink = document.getElementById('newLink')
+
 export function showSection(sectionsId){
     if(sectionsId == 'sectionList'){
         sectionList.style.display = "block";

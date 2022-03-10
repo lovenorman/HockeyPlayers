@@ -5,18 +5,12 @@ import { refreshItems } from './Data/RefreshItems.js'
 import { showSection } from './Data/Showsection.js'
 
 //Skapar kopplingar mellan html-id och JS-variabler som vi kan använda i JS-koden för att komma åt HTML.
-const sectionList = document.getElementById('sectionList')
-const sectionNew = document.getElementById('sectionNew')
-const sectionEdit = document.getElementById('sectionEdit')
-const productTableBody = document.getElementById('productTableBody')
-const submitNewButton = document.getElementById('submitNewButton')
-const listLink = document.getElementById('listLink')
-const newLink = document.getElementById('newLink')
 
-const newName = document.getElementById('newName')
-const newJersey = document.getElementById('newJersey')
-const newAge = document.getElementById('newAge')
-const newBorn = document.getElementById('newBorn')
+const productTableBody = document.getElementById('productTableBody')
+
+
+
+
 
 
 //const baseAPI = 'https://fakestoreapi.com/products'

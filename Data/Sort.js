@@ -2,6 +2,7 @@
 
 //SORT BY NAME
 export const sortByName = document.getElementById('sortByName')
+
 sortByName.addEventListener("click", ()=>{
     
     const sortedList = items.sort((a, b)=>{ //First, convert the names to lowercase.
@@ -24,6 +25,7 @@ sortByName.addEventListener("click", ()=>{
 
 // SORT BY JERSEY
 export const sortByJersey = document.getElementById('sortByJersey')
+
 sortByJersey.addEventListener("click", ()=>{
     
     const sortedList = items.sort((a, b) =>{  //Hämta listan, sortera...
@@ -39,6 +41,7 @@ sortByJersey.addEventListener("click", ()=>{
 
 //SORT BY AGE
 export const sortByAge = document.getElementById('sortByAge')
+
 sortByAge.addEventListener("click", ()=>{
     
     const sortedList = items.sort((a, b) =>{  //Hämta listan, sortera...
@@ -54,6 +57,7 @@ sortByAge.addEventListener("click", ()=>{
 
 //SORT BY BORN
 export const sortByBorn = document.getElementById('sortByBorn')
+
 sortByBorn.addEventListener("click", ()=>{
     
     const sortedList = items.sort((a, b)=>{ //First, convert the names to lowercase.
