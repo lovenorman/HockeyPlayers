@@ -1,6 +1,6 @@
 import { refreshItems } from "./RefreshItems.js"
 import { baseApi } from "../API/baseAPI.js"
-import { items } from "../script.js"
+import { items } from "./Items.js"
 
 export const editName = document.getElementById('editName')
 export const editJersey = document.getElementById('editJersey')
@@ -45,5 +45,3 @@ export function editProduct(id){
     editBorn.value = editingProduct.born;
     showSection('sectionEdit');
 }
-
-refreshItems();

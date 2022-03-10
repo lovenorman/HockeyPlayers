@@ -1,0 +1,1 @@
+export const productTableBody = document.getElementById('productTableBody')

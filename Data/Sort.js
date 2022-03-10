@@ -1,5 +1,6 @@
 import{ renderTr } from "./RenderTr.js"
-import { items, productTableBody } from "../script.js"
+import { items} from "./Items.js"
+import { productTableBody } from "./ProductTableBody.js";
 
 //SORT BY NAME
 export const sortByName = document.getElementById('sortByName')
@@ -17,8 +18,8 @@ sortByName.addEventListener("click", ()=>{
             return 1;
         }
         return 0;
-        alert(körs);
     });
+    console.log(sortedList)
     productTableBody.innerHTML = ''; //och skriva om sidan.
     sortedList.forEach((item) =>{
         renderTr(item);

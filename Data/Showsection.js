@@ -1,13 +1,15 @@
-//Metod för att visa olika sektioner av html via variablerna ovan.
+import { refreshItems } from "./RefreshItems.js"
+
 window.showSection = showSection
 
-const sectionList = document.getElementById('sectionList')
-const sectionNew = document.getElementById('sectionNew')
-const sectionEdit = document.getElementById('sectionEdit')
+export const sectionList = document.getElementById('sectionList')
+export const sectionNew = document.getElementById('sectionNew')
+export const sectionEdit = document.getElementById('sectionEdit')
 
-const listLink = document.getElementById('listLink')
-const newLink = document.getElementById('newLink')
+export const listLink = document.getElementById('listLink')
+export const newLink = document.getElementById('newLink')
 
+//Metod för att visa olika sektioner av html via variablerna ovan.
 export function showSection(sectionsId){
     if(sectionsId == 'sectionList'){
         sectionList.style.display = "block";

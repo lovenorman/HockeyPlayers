@@ -1,6 +1,7 @@
 import { baseApi } from "../API/baseAPI.js";
 import { HockeyPlayer } from "./Product.js";
 import { renderTr } from "./RenderTr.js";
+import { items } from "./Items.js";
 
 export function refreshItems(){
 
@@ -11,7 +12,10 @@ export function refreshItems(){
     //     console.log(array)
     // });
 
-    items = [];
+    //items = [];
+    while(items.length > 0){
+        items.pop();
+    }
     productTableBody.innerHTML = '';
 
     fetch(baseApi)
@@ -32,6 +36,3 @@ export function refreshItems(){
             });
         });
 }
-
-let items = [];
-refreshItems();
